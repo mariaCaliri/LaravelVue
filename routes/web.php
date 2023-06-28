@@ -17,9 +17,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::group(['prefix' => 'post'], function(){
-    Route::get('/', [App\Http\Controllers\PostController::class, 'getPosts'])->name('post.index');
-    Route::post('/create', [App\Http\Controllers\PostController::class, 'create'])->name('post.store');
+
+
+Route::middleware(['cors'])->group(function () {
+    Route::group(['prefix' => 'post'], function(){
+        Route::get('get_all', [App\Http\Controllers\PostController::class, 'getPosts']);
+        Route::post('/create', [App\Http\Controllers\PostController::class, 'create']);
+    });
 });
 
 Auth::routes();

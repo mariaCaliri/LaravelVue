@@ -6,6 +6,12 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css';
+
+
+
+
 
 
 /**
@@ -22,6 +28,8 @@ import CreatePost from './components/CreatePost.vue';
 app.component('example-component', ExampleComponent);
 app.component('all-post', AllPost);
 app.component('create-post', CreatePost);
+
+app.use(ElementPlus)
 
 
 /**

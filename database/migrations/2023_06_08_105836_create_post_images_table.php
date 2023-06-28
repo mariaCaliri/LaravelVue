@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('path', 100);
             $table->string('caption');
-            $table->integer('post_id')->nullable(false)->unsigned();
+            $table->unsignedBigInteger('post_id');
+    $table->foreign('post_id')->references('id')->on('posts');
             $table->timestamps();
         });
     }
